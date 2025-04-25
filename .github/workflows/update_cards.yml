@@ -1,33 +1,24 @@
-name: Обновление карточек из Google Таблицы
+name: Update cards from Google Sheets
 
 on:
   schedule:
-    - cron: '0 22 * * *' # Каждый день в 3:00 по Ташкенту (22:00 UTC)
+    - cron: '0 3 * * *'  # каждый день в 03:00 по UTC (08:00 по Ташкенту)
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout репозиторий
         uses: actions/checkout@v3
 
-      - name: Установка Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
 
-      - name: Установка зависимостей
-        run: npm install
+      - name: Install dependencies
+        run: npm install node-fetch cheerio
 
-      - name: Запуск обновления карточек
+      - name: Run update script
         run: node update_cards.js
-
-      - name: Коммит изменений
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add index.html
-          git commit -m "🔄 Автообновление карточек $(date +'%Y-%m-%d %H:%M:%S')" || echo "Нет изменений"
-          git push
