@@ -2,8 +2,8 @@ name: Update cards from Google Sheets
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # каждый день в 03:00 по UTC (08:00 по Ташкенту)
-  workflow_dispatch:  # ← добавляем вот эту строку
+    - cron: '0 3 * * *'  # каждый день в 08:00 по Ташкенту
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,15 +19,7 @@ jobs:
           node-version: '18'
 
       - name: Установка зависимостей
-        run: npm install
+        run: npm install node-fetch cheerio
 
       - name: Запуск скрипта обновления
         run: node update_cards.js
-
-      - name: Коммит обновлённого index.html
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git commit -m "Auto-update index.html" || echo "No changes to commit"
-          git push
