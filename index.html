@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="logo">
+      <a href="/">
+        <img src="logo.jpg" alt="Логотип">
+      </a>
+    </div>
+  </div>
+
+  <div class="header-center">
+    <form class="search-wrapper">
+      <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#767676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" id="searchInput" placeholder="Search...">
+    </form>
+  </div>
+
+  
+  
+
+  <div class="header-right">
+  <button id="termsBtn" class="terms-button">
+    <img src="Terms of Use.png" alt="Terms of Use" />
+  </button>
+</div>
+</header>
+
+
+  <main id="gallery">
+
+    <div class="card"
+     data-title="Sweet Delight Ice Cream for Two"
+     data-description=""
+     data-image="image/Sweet Delight Ice Cream for Two.png"
+     data-pdf="https://drive.google.com/uc?export=download&id=1vf6fZ6Pt8YsdqVNcoY0Da7owS1AhZBdU">
+  <img src="image/Sweet Delight Ice Cream for Two.png"
+       alt="TSweet Delight Ice Cream for Two">
+</div>
+    <div class="card"
+    data-title="Wreath of Love Tender Moments in a Flower Field"
+    data-description=""
+    data-image="image/Wreath of Love Tender Moments in a Flower Field.png"
+    data-pdf="https://drive.google.com/uc?export=download&id=1k4nrCpNIe781bIMSwOd21_Ell2VxslFl">
+ <img src="image/Wreath of Love Tender Moments in a Flower Field.png" alt="Wreath of Love Tender Moments in a Flower Field">
+</div>
+
+
+
+
+    <p id="noResults" style="display: none; text-align: center; color: #999; margin-top: 20px;">Ничего не найдено</p>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">×</span>
+      <img id="modalImage" src="" alt="Modal image">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <a id="downloadBtn" href="#" download>Download</a>
+    </div>
+  </div>
+
+  <div class="modal" id="termsModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeTerms">×</span>
+      <h2>Terms of Use</h2>
+      
+        <div class="terms-content">
+          <h3>General</h3>
+          <p>By accessing the <strong>tima.com</strong> website, you agree to follow these terms and conditions. This includes our Rules of Conduct and policies for using content on this site. If you disagree, please do not continue using the website.</p>
+        
+          <h3>Disclaimer</h3>
+          <p><strong>tima.com</strong> offers printable pages and similar resources for personal use only. All materials, including images and text, are protected by copyright and cannot be reused or altered without prior written consent.</p>
+          <p>We aim to keep the content current and accurate, but we are not liable for any disruptions, unavailable content, or technical issues. Any external links are out of our control, and we recommend reviewing third-party policies separately.</p>
+          <p>If you're under 16, you must have a parent or guardian's approval before using the site.</p>
+        
+          <h3>Copyright Policy</h3>
+          <p>All content is the intellectual property of its creators. You may not reproduce or distribute content in any form, including online or printed formats, without permission. Downloads are allowed for non-commercial, personal use only.</p>
+        
+          <h3>Privacy Statement</h3>
+          <p>Your privacy matters. We do not sell or share your data and only use it to improve site performance and functionality.</p>
+        
+          <h3>Availability</h3>
+          <p>We strive to keep the site running, but content may change or be removed without notice. Access may be restricted during updates or maintenance.</p>
+        
+          <h3>Cookies</h3>
+          <p>The site uses cookies to provide a better browsing experience. You can disable cookies in your browser settings if preferred.</p>
+        
+          <h3>Copyright Notice</h3>
+          <p>All website content is protected by copyright law. Redistribution or reuse is prohibited without consent. You are permitted to use materials solely for private, non-commercial use.</p>
+        </div>
+    </div>
+  </div>
+  
+<script src="script.js"></script>
+</body>
+</html>

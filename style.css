@@ -1,0 +1,270 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f9f9f9d5;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #fff;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.header-left,
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  height: 42px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding: 10px 16px;
+  width: 800px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.search-wrapper:hover,
+.search-wrapper:focus-within {
+  background-color: #ffffff;
+  border-color: #c4c4c4;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.search-icon {
+  margin-right: 12px;
+  flex-shrink: 0;
+  stroke: #767676;
+}
+
+.search-wrapper input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #111;
+}
+
+.search-wrapper input::placeholder {
+  color: #767676;
+}
+
+.search-wrapper input:focus {
+  outline: none;
+}
+
+main#gallery {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+  padding: 20px;
+  padding-top: 80px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  width: 90%;
+  max-width: 700px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  max-height: 80vh;    /* ← добавь сюда */
+  overflow-y: auto;    /* ← и эту */
+}
+
+.modal-content img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-content h2 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.modal-content p {
+  margin: 10px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+#downloadBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+#downloadBtn:hover {
+  background-color: #0d47a1;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  header {
+    display: flex;            /* ← добавь, если вдруг отсутствует */
+    align-items: center;      /* ← добавь: выравнивание по вертикали */
+    flex-wrap: nowrap;        /* ← уже есть, оставь */
+    justify-content: space-between;
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .logo {
+    display: flex;            /* ← добавь */
+    align-items: center;      /* ← добавь */
+  }
+
+  .logo img {
+    height: 32px;
+    display: block;           /* ← на всякий случай */
+  }
+
+  .search-wrapper {
+    flex: 1;
+    width: auto;
+    height: 36px;
+    padding: 6px 10px;
+  }
+
+  .header-right {
+    flex: unset;              /* ← добавь */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .terms-button img {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
+
+  main#gallery {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 12px;
+    padding-top: 70px;
+  }
+}
+
+
+.terms-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* ← ВАЖНО: прижимаем кнопку к правому краю */
+  align-items: center;
+}
+
+.terms-button img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+@media (max-width: 768px) {
+  .terms-button img {
+    height: 32px;
+  }
+}
