@@ -1,6 +1,13 @@
 {
+  "name": "cards-pdf-updater",
+  "version": "1.0.0",
   "type": "module",
+  "main": "update_cards.mjs",
+  "scripts": {
+    "start": "node update_cards.mjs"
+  },
   "dependencies": {
-    "node-fetch": "^3.0.0"
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^3.3.2"
   }
 }
